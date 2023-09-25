@@ -16,21 +16,31 @@ ToDoGotchi is a mobile task tracker with virtual pet that is striving from user 
 
 On the first launch application provides an invitation for user to enter their username
 
+<img src="https://github.com/octolera/ToDoGotchi/blob/origin/UI/Welcome.jpg" height=400 width=200>
+
 After getting username, application enters its main gameplay loop, in which it provides personal virtual pet that could be named on the user's premise
 
-pet screen
+<img src="https://github.com/octolera/ToDoGotchi/blob/origin/UI/GiveName.jpg" height=400 width=200> <img src="https://github.com/octolera/ToDoGotchi/blob/origin/UI/Pet.jpg" height=400 width=200>
 
 To-do checkup for the present day and tasks for the upcoming days may be viewed through the "tasks" button. Tab is always opened to show current day first, arrows on the top or side swipe are used to switch to the day before/ahead. To-Do marks for the past days are locked and remain only for revision and user's self-reflection.
 
+<img src="https://github.com/octolera/ToDoGotchi/blob/origin/UI/TaskCurrent.jpg" height=400 width=200> <img src="https://github.com/octolera/ToDoGotchi/blob/origin/UI/TasksPast.jpg" height=400 width=200> 
+
 Schedule editor is opened with the "Edit" button.
+
+<img src="https://github.com/octolera/ToDoGotchi/blob/origin/UI/EditSchedule.jpg" height=400 width=200>
 
 Editor allows adding new tasks for upcoming days. Tasks may be one-time and permanent - repeating on the given week days.
 
-task creation tab
+<img src="https://github.com/octolera/ToDoGotchi/blob/origin/UI/NewTaskForm.jpg" height=400 width=200>
 
-The better the performance, the better the pet's mood and health
+The better the performance, the better the pet's mood and health...and vice versa. 
 
-...and vice versa. Severe neglidgence may result in pet's death
+<img src="https://github.com/octolera/ToDoGotchi/blob/origin/UI/LowHealth.jpg" height=400 width=200>
+
+Severe neglidgence may result in pet's death
+
+<img src="https://github.com/octolera/ToDoGotchi/blob/origin/UI/RIP.jpg" height=400 width=200>
 
 ### 2.3 Users Characteristics
 
