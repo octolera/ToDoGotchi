@@ -8,7 +8,7 @@
 - [Components](#components)
 
 ## Glossary
-
+![Glossary](https://github.com/octolera/ToDoGotchi/blob/main/Diagrams/assets/Glossary.jpg)
 ## Usecase
 ![Usecase](https://github.com/octolera/ToDoGotchi/blob/main/Diagrams/assets/Usecase.png)
 ## Activity
