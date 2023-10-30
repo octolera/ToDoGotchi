@@ -49,7 +49,7 @@
 3. Tasks dedlines for the selected day are listed
    
 + Mark a task as completed
-+ 1. This flow of events starts when user has an alive pet and is on task screen
+1. This flow of events starts when user has an alive pet and is on task screen
 2. User uses arrows to navigate to current day
 3. User presses the checkbox next to the task name
 4. Task is registered as completed
