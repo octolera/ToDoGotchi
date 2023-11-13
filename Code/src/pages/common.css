@@ -1,0 +1,82 @@
+html {
+  --primary-color: #000;
+  --neutral-color: #8b8b8b;
+  --neutral-dark-color: #616161;
+  --accent-dark-color: #2a2a2a;
+  --secondary-color: #fff;
+}
+
+.common-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 15px;
+  margin-right: 15px;
+  min-height: 100vh;
+  max-width: 360px;
+  width: calc(100vw - 30px);
+}
+.action-container {
+  min-height: 55vh;
+  padding-bottom: 44px;
+}
+.btn {
+  color: var(--secondary-color);
+  font-size: 15px;
+  padding: 12px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+  text-align: center;
+  background-color: var(--neutral-color);
+  border-radius: 15px;
+  width: 100%;
+  transition: background;
+  transition-duration: 50ms;
+}
+.btn:active {
+  background-color: var(--neutral-dark-color);
+}
+.btn-inverse {
+  color: #000;
+  font-size: 15px;
+  padding: 12px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+  text-align: center;
+  border-radius: 15px;
+  background-color: #fff;
+  border: 2px solid #000;
+  width: 100%;
+  transition: all;
+  transition-duration: 150ms;
+}
+.btn-inverse:active {
+  background-color: var(--accent-dark-color);
+  border: 2px solid var(--accent-dark-color);
+  color: #fff;
+}
+.btn-back {
+  all: unset;
+  background-color: var(--secondary-color);
+  display: flex;
+  column-gap: 9px;
+  align-items: center;
+  justify-items: center;
+  font-size: 15px;
+}
+.inp-field {
+  all: unset;
+  appearance: none;
+  border: 2px solid var(--primary-color);
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 32px;
+  padding-right: 32px;
+  font-size: 15px;
+  border-radius: 15px;
+}
+.inp-field:placeholder-shown {
+  color: var(--neutral-color);
+}

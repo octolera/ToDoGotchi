@@ -1,0 +1,72 @@
+#petname-container {
+  margin-top: 62px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 9px;
+  width: 100%;
+}
+#petname-header {
+  text-align: left;
+  margin-top: 0;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: normal;
+}
+#petname-invitation {
+  text-align: center;
+  margin-left: 4px;
+  padding-bottom: 4px;
+  font-size: 15px;
+}
+#petname-screen {
+  justify-content: center;
+  align-items: center;
+}
+#petname-btn-back-container {
+  width: 100%;
+  padding-top: 44px;
+}
+#petname-shadow {
+  position: relative;
+  top: 100%;
+  left: 0;
+  animation: shadow 2s ease-in-out infinite;
+}
+#petname-egg {
+  animation: hatch 2s ease-in infinite;
+}
+@keyframes shadow {
+  0% {
+    transform: scale(0.7);
+    color: #a8a8a8;
+  }
+  20% {
+    transform: scale(0.85) skewX(10deg);
+    color: #d9d9d9;
+  }
+  100% {
+    transform: scale(0.7) skewX(-10deg);
+    color: #a8a8a8;
+  }
+}
+@keyframes hatch {
+  0% {
+    rotate: 0;
+  }
+  20% {
+    rotate: 10deg;
+    transform: translateY(-25px);
+  }
+  40% {
+    rotate: -8deg;
+  }
+  60% {
+    rotate: 15deg;
+  }
+  80% {
+    rotate: -13deg;
+  }
+  100% {
+    rotate: 0;
+  }
+}

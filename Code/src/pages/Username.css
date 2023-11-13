@@ -1,0 +1,25 @@
+#username-container {
+  margin-top: 62px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 9px;
+  width: 100%;
+}
+#username-header {
+  text-align: left;
+  margin-top: 0;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: normal;
+}
+#username-invitation {
+  margin-left: 4px;
+  font-size: 15px;
+}
+#username-screen {
+  justify-content: center;
+  align-items: center;
+}
+#username-wrapper {
+  justify-content: center;
+}
