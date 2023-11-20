@@ -4,9 +4,10 @@ import {
   useIonViewWillEnter,
   useIonViewWillLeave,
 } from "@ionic/react";
-import { get } from "../data/IonicStorage";
+import { set, get } from "../data/IonicStorage";
 import "./MainScreen.css";
 import "./common.css";
+import { useHistory } from "react-router";
 
 const states = [
   {
@@ -19,13 +20,9 @@ const states = [
     minHealth: 1,
     maxHealth: 49,
   },
-  {
-    src: "/assets/pet-static/kepa-dead.webp",
-    minHealth: 0,
-    maxHealth: 0,
-  },
 ];
 const MainScreen = () => {
+  const history = useHistory();
   const [health, setHealth] = useState(10);
   const [petname, setPetname] = useState("");
   const [opacity, setOpacity] = useState(0);
@@ -40,8 +37,12 @@ const MainScreen = () => {
   useIonViewWillLeave(() => {
     setOpacity(0);
   });
-  const testClick = () => {
+  const testClick = async () => {
     setHealth((x) => (x >= 100 ? 0 : x + 10));
+    if (health + 10 > 100) {
+      await set("_dead", true);
+      history.replace("/death-screen");
+    }
   };
 
   return (

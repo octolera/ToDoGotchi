@@ -1,0 +1,29 @@
+#death-screen {
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 25px;
+}
+#death-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  height: calc(100vh - 90px);
+}
+#death-header {
+  text-align: center;
+  color: #8d8d8d;
+  font-size: 12px;
+  max-width: 270px;
+}
+#death-title {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 28px;
+}
+#death-stat {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}

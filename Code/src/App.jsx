@@ -25,6 +25,7 @@ import Username from "./pages/Username";
 import PetName from "./pages/PetName";
 import Fetch from "./pages/Fetch";
 import MainScreen from "./pages/MainScreen";
+import DeathScreen from "./pages/DeathScreen";
 
 setupIonicReact();
 
@@ -44,6 +45,9 @@ const App = () => {
           </Route>
           <Route path="/main-screen" exact={true}>
             <MainScreen />
+          </Route>
+          <Route path="/death-screen" exact={true}>
+            <DeathScreen />
           </Route>
         </IonRouterOutlet>
       </IonReactRouter>

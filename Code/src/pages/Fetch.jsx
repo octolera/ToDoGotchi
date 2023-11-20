@@ -1,20 +1,28 @@
 import { useEffect, Fragment } from "react";
 import { useHistory } from "react-router";
-import { createStore, get } from "../data/IonicStorage";
+import { createStore, get, set } from "../data/IonicStorage";
 function Fetch() {
   const history = useHistory();
   useEffect(() => {
     const setupStore = async () => {
       await createStore("UserData");
+      if (!(await get("_dead"))) {
+        await set("_dead", false);
+      }
+      const dead = await get("_dead");
+      if (dead) {
+        history.replace("/death-screen");
+        return;
+      }
       if (!(await get("_username"))) {
-        history.push("/username");
+        history.replace("/username");
         return;
       }
       if (!(await get("_petname"))) {
-        history.push("/petname");
+        history.replace("/petname");
         return;
       }
-      history.push("/main-screen");
+      history.replace("/main-screen");
     };
     setupStore();
   }, []);
