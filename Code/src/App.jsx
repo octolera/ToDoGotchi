@@ -1,4 +1,4 @@
-import { Redirect, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 
@@ -23,25 +23,32 @@ import "@ionic/react/css/display.css";
 import "./theme/variables.css";
 import Username from "./pages/Username";
 import PetName from "./pages/PetName";
+import Fetch from "./pages/Fetch";
+import MainScreen from "./pages/MainScreen";
 
 setupIonicReact();
 
-const App = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet animated={false}>
-        <Route path="/" exact={true}>
-          <Redirect to="/petname" />
-        </Route>
-        <Route path="/petname" exact={true}>
-          <PetName />
-        </Route>
-        <Route path="/username" exact={true}>
-          <Username />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+const App = () => {
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Route path="/" exact={true}>
+            <Fetch />
+          </Route>
+          <Route path="/petname" exact={true}>
+            <PetName />
+          </Route>
+          <Route path="/username" exact={true}>
+            <Username />
+          </Route>
+          <Route path="/main-screen" exact={true}>
+            <MainScreen />
+          </Route>
+        </IonRouterOutlet>
+      </IonReactRouter>
+    </IonApp>
+  );
+};
 
 export default App;

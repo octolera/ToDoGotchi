@@ -1,11 +1,57 @@
-import { IonPage } from "@ionic/react";
+import { useRef, useState } from "react";
+import {
+  IonPage,
+  useIonViewWillEnter,
+  useIonViewWillLeave,
+} from "@ionic/react";
 import "./common.css";
 import "./PetName.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { set, get } from "../data/IonicStorage";
 function PetName() {
+  const inputRef = useRef();
+  const history = useHistory();
+  const [username, setUsername] = useState("");
+  const [opacity, setOpacity] = useState(0);
+  useIonViewWillEnter(() => {
+    const fetchStore = async () => {
+      const user = await get("_username");
+      if (!user) {
+        history.push("/username");
+      }
+      setUsername(user);
+    };
+    fetchStore();
+    setOpacity(1);
+  });
+  useIonViewWillLeave(() => {
+    setOpacity(0);
+  });
+  const submitName = async (e) => {
+    e.preventDefault();
+    /**@type {string} */
+    const petname = inputRef.current.value;
+    if (petname.length == 0 || petname.length > 20) {
+      setInvitation("error");
+      return false;
+    }
+    /**@type {string} */
+    const pet = await get("_petname");
+    if (pet != petname) {
+      await set("_petname", petname);
+    }
+    history.replace("/");
+    return false;
+  };
   return (
     <IonPage id="petname-screen">
-      <div className="common-container">
+      <div
+        style={{
+          transition: "opacity",
+          transitionDuration: "300",
+          opacity: opacity,
+        }}
+        className="common-container">
         <div id="petname-btn-back-container">
           <Link
             to="/username"
@@ -51,14 +97,19 @@ function PetName() {
         </div>
         <span id="petname-container">
           <p id="petname-invitation">
-            Привет, username! Теперь дай имя своему питомцу:
+            Привет, {username}! Теперь дай имя своему питомцу:
           </p>
-          <input
-            maxLength={25}
-            placeholder="Имя питомца"
-            className="inp-field"
-          />
-          <button className="btn">Готово!</button>
+          <form onSubmit={submitName} id="petname-form">
+            <input
+              ref={inputRef}
+              maxLength={25}
+              placeholder="Имя питомца"
+              className="inp-field"
+            />
+            <button onClick={submitName} className="btn">
+              Готово!
+            </button>
+          </form>
         </span>
       </div>
     </IonPage>
