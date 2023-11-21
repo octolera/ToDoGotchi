@@ -40,7 +40,7 @@ const MainScreen = () => {
   const testClick = async () => {
     setHealth((x) => (x >= 100 ? 0 : x + 10));
     if (health + 10 > 100) {
-      await set("_dead", true);
+      //await set("_dead", true);
       history.replace("/death-screen");
     }
   };
@@ -56,7 +56,9 @@ const MainScreen = () => {
         id="main-container"
         className="common-container">
         <div id="main-title">ToDoGotchi</div>
-        <div id="pet-name">{petname}</div>
+        <div data-testid="pet-name" id="pet-name">
+          {petname}
+        </div>
         <div id="pet-border">
           {states.map((e) => (
             <img

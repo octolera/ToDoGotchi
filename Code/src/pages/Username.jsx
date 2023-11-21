@@ -61,12 +61,13 @@ function Username() {
           <p id="username-invitation">{invitationText[invitation]}</p>
           <form id="username-form" onSubmit={submitName}>
             <input
+              id="username-input"
               ref={inputRef}
               maxLength={25}
               placeholder="Моё имя"
               className="inp-field"
             />
-            <button onClick={submitName} className="btn">
+            <button id="username-button" onClick={submitName} className="btn">
               Далее
             </button>
           </form>

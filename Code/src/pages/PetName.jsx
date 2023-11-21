@@ -13,6 +13,7 @@ function PetName() {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [opacity, setOpacity] = useState(0);
+  const [invitation, setInvitation] = useState(true);
   useIonViewWillEnter(() => {
     const fetchStore = async () => {
       const user = await get("_username");
@@ -32,7 +33,7 @@ function PetName() {
     /**@type {string} */
     const petname = inputRef.current.value;
     if (petname.length == 0 || petname.length > 20) {
-      setInvitation("error");
+      setInvitation(false);
       return false;
     }
     /**@type {string} */
@@ -54,6 +55,7 @@ function PetName() {
         className="common-container">
         <div id="petname-btn-back-container">
           <Link
+            id="petname-back"
             to="/username"
             style={{ width: "fit-content" }}
             className="btn-back">
@@ -97,16 +99,19 @@ function PetName() {
         </div>
         <span id="petname-container">
           <p id="petname-invitation">
-            Привет, {username}! Теперь дай имя своему питомцу:
+            {invitation
+              ? `Привет, ${username}! Теперь дай имя своему питомцу:`
+              : `${username}, попробуй в этот раз чуть получше:`}
           </p>
           <form onSubmit={submitName} id="petname-form">
             <input
+              id="petname-input"
               ref={inputRef}
               maxLength={25}
               placeholder="Имя питомца"
               className="inp-field"
             />
-            <button onClick={submitName} className="btn">
+            <button id="petname-button" onClick={submitName} className="btn">
               Готово!
             </button>
           </form>

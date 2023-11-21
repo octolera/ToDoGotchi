@@ -5,7 +5,6 @@ function Fetch() {
   const history = useHistory();
   useEffect(() => {
     const setupStore = async () => {
-      await createStore("UserData");
       if (!(await get("_dead"))) {
         await set("_dead", false);
       }

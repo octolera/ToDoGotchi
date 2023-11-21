@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { set, remove } from "../data/IonicStorage";
+import { set, get, remove } from "../data/IonicStorage";
 import {
   IonPage,
   useIonViewWillEnter,
@@ -14,6 +14,10 @@ function DeathScreen() {
   const history = useHistory();
   const [opacity, setOpacity] = useState(0);
   useIonViewWillEnter(() => {
+    const load = async () => {
+      if (!(await get("_dead"))) await set("_dead", true);
+    };
+    load();
     setOpacity(1);
   });
   useIonViewWillLeave(() => {
@@ -40,7 +44,7 @@ function DeathScreen() {
           <img src="/assets/pet-static/kepa-dead.webp" />
           <h1 id="death-title">Побеждён дедлайном</h1>
           <p id="death-stat">Пройдено: 15 дней</p>
-          <button onClick={restart} className="btn">
+          <button id="death-screen-button" onClick={restart} className="btn">
             Начать заного
           </button>
         </div>

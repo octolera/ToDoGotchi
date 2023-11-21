@@ -26,10 +26,18 @@ import PetName from "./pages/PetName";
 import Fetch from "./pages/Fetch";
 import MainScreen from "./pages/MainScreen";
 import DeathScreen from "./pages/DeathScreen";
+import { useEffect } from "react";
+import { createStore } from "./data/IonicStorage";
 
 setupIonicReact();
 
 const App = () => {
+  useEffect(() => {
+    const setupStore = async () => {
+      await createStore("UserData");
+    };
+    setupStore();
+  });
   return (
     <IonApp>
       <IonReactRouter>
