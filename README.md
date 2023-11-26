@@ -5,4 +5,5 @@ Mobile to-do tracker with virtual pet, which is thriving on user's task completi
 - [Requirements](https://github.com/octolera/ToDoGotchi/blob/main/Requirements/SRS.md)
 - [Diagrams](https://github.com/octolera/ToDoGotchi/blob/main/Diagrams/description/README.md)
 - [Code](https://github.com/octolera/ToDoGotchi/tree/main/Code)
+- [Test Plan](https://github.com/octolera/ToDoGotchi/blob/main/Tests/TestPlan.md)
 
