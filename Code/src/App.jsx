@@ -26,6 +26,7 @@ import PetName from "./pages/PetName";
 import Fetch from "./pages/Fetch";
 import MainScreen from "./pages/MainScreen";
 import DeathScreen from "./pages/DeathScreen";
+import Schedule from "./pages/Schedule";
 import { useEffect } from "react";
 import { createStore } from "./data/IonicStorage";
 
@@ -56,6 +57,9 @@ const App = () => {
           </Route>
           <Route path="/death-screen" exact={true}>
             <DeathScreen />
+          </Route>
+          <Route path="/schedule" exact={true}>
+            <Schedule />
           </Route>
         </IonRouterOutlet>
       </IonReactRouter>
