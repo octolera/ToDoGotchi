@@ -12,3 +12,4 @@
 |         Tasks          |     80     |  10   | Add and remove some tasks in calendar activity |   -   |
 
 ### Task Tracker
+![Sprint_1](https://github.com/octolera/ToDoGotchi/blob/main/Scrum/Sprint_1.png)
