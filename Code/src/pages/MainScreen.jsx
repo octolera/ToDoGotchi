@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   IonPage,
   useIonViewWillEnter,
@@ -26,6 +26,7 @@ const MainScreen = () => {
   const [health, setHealth] = useState(10);
   const [petname, setPetname] = useState("");
   const [opacity, setOpacity] = useState(0);
+  const video = useRef();
   useIonViewWillEnter(() => {
     const fetchStore = async () => {
       const name = await get("_petname");
@@ -33,11 +34,12 @@ const MainScreen = () => {
     };
     fetchStore();
     setOpacity(1);
+    video.current.currentTime = 15;
   });
   useIonViewWillLeave(() => {
     setOpacity(0);
   });
-  const testClick = async () => {
+  const testClick = () => {
     setHealth((x) => (x >= 100 ? 0 : x + 10));
     if (health + 10 > 100) {
       //await set("_dead", true);
@@ -60,18 +62,14 @@ const MainScreen = () => {
           {petname}
         </div>
         <div id="pet-border">
-          {states.map((e) => (
-            <img
-              key={e.src}
-              style={{
-                display:
-                  health >= e.minHealth && health <= e.maxHealth
-                    ? "block"
-                    : "none",
-              }}
-              src={e.src}
-            />
-          ))}
+          <video
+            autoPlay={true}
+            muted={true}
+            ref={video}
+            style={{ zIndex: 10, width: 300 }}
+            preload="metadata">
+            <source src="/assets/pet-static/kepa.webm" type="video/webm" />
+          </video>
         </div>
         <span id="health-bar">
           <p>Здоровье</p>
