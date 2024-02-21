@@ -1,206 +1,206 @@
 #schedule-screen {
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 #sched-container {
-    padding: 0;
+  padding: 0;
 }
 
 #sched-title {
-    height: 80px;
-    min-width: 100%;
-    background-color: #7e7e7e;
-    fill: #7e7e7e;
-    padding-bottom: 15px;
-    text-align: center;
-    padding-top: 20px;
-    color: white;
-    font-size: 35px;
+  height: 80px;
+  min-width: 100vw;
+  background-color: #7e7e7e;
+  fill: #7e7e7e;
+  padding-bottom: 15px;
+  text-align: center;
+  padding-top: 20px;
+  color: white;
+  font-size: 35px;
 }
 
 #sched-month {
-    display: flex;
-    height: 40px;
-    min-width: 100%;
-    flex-direction: row;
-    border-bottom: 2px solid black;
+  display: flex;
+  height: 40px;
+  min-width: 100%;
+  flex-direction: row;
+  border-bottom: 2px solid black;
 
-    align-items: center;
-    justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #scroll-button {
-    border: none;
-    height: 30px;
-    width: 30px;
-    background-color: #ffffff;
+  border: none;
+  height: 30px;
+  width: 30px;
+  background-color: #ffffff;
 }
 
 #scrollable-container {
-    overflow-y: auto;
-    height: 100%;
-    max-width: 100%;
-    min-width: 100%;
+  overflow-y: auto;
+  height: 100%;
+  max-width: 100%;
+  min-width: 100%;
 }
 
 #scrollable-content {
-    height: 2000px;
+  height: 2000px;
 }
 
 #day-card {
-    padding: 10px 0px;
-    border-bottom: 2px solid black;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    min-height: 60px;
+  padding: 10px 0px;
+  border-bottom: 2px solid black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 60px;
 }
 
 #text-card {
-    min-width: 100%;
-    max-width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
+  min-width: 100%;
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
 #day-card-title {
-    width: 50%;
-    height: 100%;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    font-size: 12pt;
+  width: 50%;
+  height: 100%;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  font-size: 12pt;
 }
 
 #text-task-underl {
-    min-width: 70%;
-    height: 100%;
-    padding: 10px 0px 10px 5px;
-    border-bottom: 2px solid rgb(211, 211, 211);
-    font-size: 10pt;
+  min-width: 70%;
+  height: 100%;
+  padding: 10px 0px 10px 5px;
+  border-bottom: 2px solid rgb(211, 211, 211);
+  font-size: 10pt;
 }
 
 #text-task {
-    width: 95%;
-    height: 100%;
-    padding: 10px 0px 5px 20px;
-    font-size: 10pt;
+  width: 95%;
+  height: 100%;
+  padding: 10px 0px 5px 20px;
+  font-size: 10pt;
 }
 
 #button-area {
-    width: 10%;
-    height: 100%;
+  width: 10%;
+  height: 100%;
 }
 
 #edit-button {
-    padding: 15px;
-    border: 2px solid black;
-    font-size: 20px;
-    border-radius: 10px;
-    background-color: white;
+  padding: 15px;
+  border: 2px solid black;
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: white;
 }
 
 #fill-color {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: #000000;
-    opacity: 30%;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 30%;
 }
 
 #popup-box {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    margin-top: 20%;
-    width: 35%;
-    height: 90%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  top: 80px;
+  margin-left: 30px;
+  margin-right: 30px;
+  height: 90%;
 }
 
 #popup-menu {
-    border: 2px solid black;
-    border-radius: 15px;
-    background-color: white;
-    width: 100%;
-    margin-bottom: 5px;
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: white;
+  width: 100%;
+  margin-bottom: 5px;
 }
 
 #popup-button {
-    border: 2px solid black;
-    border-radius: 15px;
-    background-color: rgb(255, 255, 255);
-    width: 100%;
-    height: 50px;
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 50px;
 }
 
 #square-button {
-    border: 2px solid black;
-    border-radius: 15px;
-    background-color: rgb(255, 255, 255);
-    width: 50px;
-    height: 50px;
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255);
+  width: 50px;
+  height: 50px;
 }
 
 lined-button {
-    background-color: white;
+  background-color: white;
 }
 
 lined-button:hover {
-    background-color: rgb(159, 159, 159);
+  background-color: rgb(159, 159, 159);
 }
 
 #btn-back-container {
-    position: relative;
-    margin: 25px 15px;
+  position: relative;
+  margin: 25px 15px;
 }
 
 #menu-container {
-    width: 100%;
-    height: 100%;
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #title {
-    font-size: 25px;
-    text-align: center;
-    width: 100%;
+  font-size: 25px;
+  text-align: center;
+  width: 100%;
 }
 
 #small-text {
-    font-size: 13px;
-    margin: 10px;
-    text-align: center;
-    width: 100%;
-
+  font-size: 13px;
+  margin: 10px;
+  text-align: center;
+  width: 100%;
 }
 
 #line-container {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    gap: 10px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
 }
 
 #taskname-form {
-    width: 100%;
-    height: 120px;
+  width: 100%;
+  height: 120px;
 }
 
 #taskname-input {
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    border: 2px solid black;
-    border-radius: 15px;
-    resize: none;
-    font-size: 13px;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 15px;
+  resize: none;
+  font-size: 13px;
 }
