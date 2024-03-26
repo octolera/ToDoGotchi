@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import {
   IonPage,
   useIonViewWillEnter,
@@ -11,38 +11,125 @@ import { useHistory } from "react-router";
 
 const states = [
   {
-    src: "/assets/pet-static/kepa-idle.webp",
-    minHealth: 50,
-    maxHealth: 100,
+    threshold: 66,
+    animations: [
+      {
+        start: 6.3,
+        duration: 5.5,
+        priority: 70,
+      },
+      {
+        start: 4.5,
+        duration: 1.5,
+        priority: 20,
+      },
+      {
+        start: 0,
+        duration: 4,
+        priority: 10,
+      },
+    ],
   },
   {
-    src: "/assets/pet-static/kepa-done.webp",
-    minHealth: 1,
-    maxHealth: 49,
+    threshold: 33,
+    animations: [
+      {
+        start: 11.8,
+        duration: 5.8,
+        priority: 10,
+      },
+      {
+        start: 11.8,
+        duration: 2.8,
+        priority: 20,
+      },
+      {
+        start: 17.6,
+        duration: 3.4,
+        priority: 70,
+      },
+    ],
+  },
+  {
+    threshold: 0,
+    animations: [
+      {
+        start: 22.7,
+        duration: 4,
+        priority: 30,
+      },
+      {
+        start: 26.5,
+        duration: 6,
+        priority: 70,
+      },
+    ],
   },
 ];
+const healthToPetState = (health) =>{
+  const sortedStates = states.sort((a,b)=> a.threshold > b.threshold);
+  for(let i=0;i<sortedStates.length;i++){
+    if( health >=sortedStates[i].threshold){ 
+      return i;
+    }
+  }
+  return 0;
+} 
+const randomInt = (max) =>{
+  return Math.floor(Math.random() * max);
+}
+const weightedRandom = (weights) => {
+  let sum = 0;
+  weights.forEach(x => {sum+=x.priority});
+  let rnd = randomInt(Math.floor(sum));
+  for (const x of weights){
+    if(rnd < x.priority) return x;
+    rnd -= x.priority;
+  }
+}
+let globalBlock =false;
+let globalPetState = 0;
 const MainScreen = () => {
+
   const history = useHistory();
   const [health, setHealth] = useState(10);
   const [petname, setPetname] = useState("");
   const [opacity, setOpacity] = useState(0);
+  const [petState, setPetState] = useState(0);
   const video = useRef();
+  const playAnimation = (block=false) =>{
+    if(globalBlock && block) return;
+    try {
+    const s = weightedRandom(states[globalPetState].animations);
+    video.current.currentTime = s.start;
+    setTimeout(()=>{
+      playAnimation();
+    },s.duration*1000)
+  }catch(e){
+    return;
+  }
+    if(block){
+      globalBlock =true;
+    }
+  }
   useIonViewWillEnter(() => {
     const fetchStore = async () => {
       const name = await get("_petname");
       setPetname(name);
     };
+    globalPetState = healthToPetState(health);
     fetchStore();
     setOpacity(1);
-    video.current.currentTime = 15;
-  });
+    playAnimation(1);
+    //
+  },[]);
   useIonViewWillLeave(() => {
     setOpacity(0);
   });
   const testClick = () => {
     setHealth((x) => (x >= 100 ? 0 : x + 10));
+    globalPetState = healthToPetState(health +10);
     if (health + 10 > 100) {
-      //await set("_dead", true);
       history.replace("/death-screen");
     }
   };
@@ -63,10 +150,11 @@ const MainScreen = () => {
         </div>
         <div id="pet-border">
           <video
+            id="animation"
             autoPlay={true}
             muted={true}
             ref={video}
-            style={{ zIndex: 10, width: 300 }}
+            style={{ zIndex: 10, maxWidth: 300 }}
             preload="metadata">
             <source src="/assets/pet-static/kepa.webm" type="video/webm" />
           </video>

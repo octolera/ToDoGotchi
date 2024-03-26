@@ -27,6 +27,18 @@ describe("Second launch", () => {
     cy.get("#main-container").should("be.visible");
     cy.screenshot();
   });
+  it("Check playback", () => {
+    cy.visit("/");
+    cy.get("#animation").should("be.visible");
+    cy.screenshot();
+  });
+  it("Check schedule screen", ()=>{
+    cy.visit("/schedule");
+    cy.get("#sched-container").should("be.visible");
+    cy.screenshot();
+    cy.get("#scroll-button").should("be.visible").click();
+    cy.screenshot();
+  });
   it("Check death sequence", () => {
     cy.visit("/death-screen");
     cy.get("#death-screen").should("be.visible");
